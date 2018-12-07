@@ -31,8 +31,6 @@
             </div>
 
 
-
-
         </div>
         <div class="modal-footer" style="border-top: 0;">
           <button type="submit" class="btn btn-primary">Update Project</button>
@@ -43,15 +41,16 @@
   </div>
 
 
-
-
 <div class="row">
   <div class="col-md-5">
     <div class="form-group">
-      <label for="volunteers_assigned">Volunteers assigned to project</label>
-      <select multiple class="form-control" id="volunteers_assigned">
-        <option>volunteer assinged</option>
-
+      <label for="assigned">Volunteers working this project</label>
+      <select multiple class="form-control" id="unassigned" name="unassigned">
+        <% @volunteers.each do |volunteer| %>
+        <% if volunteer.project_id.to_i == @project.id %>
+          <option name="volunteer_id[]" value="<%=volunteer.id %>"><%= volunteer.name %></option>
+          <% end %>
+        <% end %>
       </select>
     </div>
   </div>
@@ -66,13 +65,13 @@
 
   <div class="col-md-5">
     <div class="form-group">
-      <label for="exampleFormControlSelect2">Unassigned volunteers</label>
-      <select multiple class="form-control" id="exampleFormControlSelect2">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
+      <label for="unassigned">Unassigned volunteers</label>
+      <select multiple class="form-control" id="unassigned" name="unassigned">
+        <% @volunteers.each do |volunteer| %>
+        <% if volunteer.project_id.to_i == 0 %>
+          <option name="volunteer_id[]" value="<%=volunteer.id %>"><%= volunteer.name %></option>
+          <% end %>
+        <% end %>
       </select>
     </div>
 

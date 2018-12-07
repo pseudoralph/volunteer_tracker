@@ -85,8 +85,8 @@
         <% @all_volunteers.each do |volunteer| %>
         <tr>
           <td><%= volunteer.name %></td>
-          <td><%= projects_staus = volunteer.project_id != 0 ? 'yes' : '<em>no</em>'%></td>
-          <td><i class="far fa-trash-alt"></i></td>
+          <td><%= projects_staus = volunteer.project_id != 0 ? '<strong><em>yes</em></strong>' : '<em>no</em>'%></td>
+          <td><a href="/volunteers/<%= volunteer.id %>/delete"><i class="far fa-trash-alt"></i></a></td>
         </tr>
 
         <% end %>

@@ -26,7 +26,6 @@ end
 
 post '/add-volunteer' do
   if params["name"] != ''
-
     volunteer = Volunteer.new({name: params['name']})
     volunteer.save
   end
@@ -35,6 +34,7 @@ end
 
 get '/projects/:id' do
   @project = Project.find(params[:id].to_i)
+  @volunteers = Volunteer.all
 
   erb :project_details
 end
@@ -44,4 +44,11 @@ patch '/projects/:id/rename' do
   @project.update({title: params[:title]})
 
   redirect "/projects/#{params[:id].to_i}"
+end
+
+get '/volunteers/:id/delete' do
+  volunteer = Volunteer.find(params[:id].to_i)
+  volunteer.delete
+
+  redirect '/'
 end
