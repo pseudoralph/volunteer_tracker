@@ -34,6 +34,7 @@ class Project
   end
 
   def update(new_attribs)
+    # binding.pry
     @title = new_attribs[:title] ? new_attribs[:title] : @title
     DB.exec("UPDATE projects SET title = '#{@title}' WHERE id = #{@id};")
   end

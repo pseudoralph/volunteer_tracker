@@ -1,0 +1,38 @@
+.nav-styling {
+  margin: 0 -15px 15px;
+}
+
+.assign button {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+}
+.proj-title h3 {
+  display: inline-block;
+  margin: 0 10px 30px auto;
+}
+
+.proj-title a {
+  color: #878787;
+
+}
+
+.proj-title a:hover {
+  color: #878787;
+  /* text-decoration: none; */
+
+}

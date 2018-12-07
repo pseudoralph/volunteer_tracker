@@ -1,0 +1,81 @@
+
+  <nav class="navbar navbar-light bg-light nav-styling" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Projects</li>
+    </ol>
+  </nav>
+
+  <div class="proj-title">
+    <h3><%= @project.title %></h3>
+    <small><a href="#" data-toggle="modal" data-target="#exampleModal">Edit Project</a></small>
+
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Rename project</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <form action="/projects/<%= @project.id %>/rename" method="post">
+            <input type="hidden" name="_method" value="patch">
+            <div class="form-group">
+              <input type="text" class="form-control" id="title" name="title" placeholder="New title">
+            </div>
+
+
+
+
+        </div>
+        <div class="modal-footer" style="border-top: 0;">
+          <button type="submit" class="btn btn-primary">Update Project</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<div class="row">
+  <div class="col-md-5">
+    <div class="form-group">
+      <label for="volunteers_assigned">Volunteers assigned to project</label>
+      <select multiple class="form-control" id="volunteers_assigned">
+        <option>volunteer assinged</option>
+
+      </select>
+    </div>
+  </div>
+
+  <div class="col-md-2 mx-auto assign">
+
+    <button type="button" class="btn-primary" name="button"> <-- </button>
+    <button type="button" class="btn-primary" name="button"> --> </button>
+
+
+  </div>
+
+  <div class="col-md-5">
+    <div class="form-group">
+      <label for="exampleFormControlSelect2">Unassigned volunteers</label>
+      <select multiple class="form-control" id="exampleFormControlSelect2">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </div>
+
+  </div>
+
+</div>
