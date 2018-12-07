@@ -1,1 +1,81 @@
-hi!
+<div class="row">
+
+  <!-- <div class="col-md-1">
+
+  </div> -->
+
+  <div class="col-md-5">
+
+    <div class="card">
+      <h5 class="card-header">Add new project</h5>
+      <div class="card-body">
+        <form action="/add-proj" method="post">
+          <input type="hidden" name="_method" value="patch">
+          <div class="form-group">
+            <label for="title">Project title</label>
+            <input type="text" class="form-control" id="title" name="title">
+          </div>
+          <button type="submit" class="btn btn-primary">Create Project</button>
+        </form>
+      </div>
+    </div>
+<!--
+    @all_projects = Project.all
+    @all_volunteers = Volunteer.all -->
+
+    <div class="project_details">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col"># of volunteers</th>
+            <th scope="col">&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @all_projects.each do |project| %>
+          <tr>
+            <td><%= project.title %></td>
+            <td>0</td>
+            <td><button type="button" name="<%= project.id %>">Edit</button></td>
+          </tr>
+
+          <% end %>
+
+        </tbody>
+      </table>
+
+    </div>
+
+
+  </div>
+
+  <div class="col-md-1">
+
+  </div>
+
+  <div class="col-md-5">
+
+    <div class="card">
+      <h5 class="card-header">Add new voluteer</h5>
+      <div class="card-body">
+        <form action="/" method="post">
+          <div class="form-group">
+            <label for="name">Volunteer name</label>
+            <input type="text" class="form-control" id="name" name="name">
+          </div>
+          <button type="submit" class="btn btn-primary">Create Volunteer</button>
+        </form>
+      </div>
+    </div>
+
+    <ul>
+      <li>Volunteer</li>
+    </ul>
+
+  </div>
+
+
+
+
+</div>

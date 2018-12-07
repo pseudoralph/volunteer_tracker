@@ -31,12 +31,12 @@ class Volunteer
 
   end
 
-  def ==(other_volunteer)
-    @name.==(other_volunteer.name) & @project_id.==(other_volunteer.project_id) & @id.==(other_volunteer.id)
-  end
-
   def save
     @id = DB.exec("INSERT INTO volunteers (name, project_id) VALUES ('#{@name}', #{@project_id}) RETURNING id;").first['id'].to_i
+  end
+
+  def ==(other_volunteer)
+    @name.==(other_volunteer.name) & @project_id.==(other_volunteer.project_id) & @id.==(other_volunteer.id)
   end
 
 end

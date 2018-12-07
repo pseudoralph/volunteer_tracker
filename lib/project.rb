@@ -29,11 +29,6 @@ class Project
       })
   end
 
-  def ==(other_proj)
-    @title.==(other_proj.title) & @id.==(other_proj.id)
-
-  end
-
   def save
     @id = DB.exec("INSERT INTO projects (title) VALUES ('#{@title}') RETURNING id;").first["id"].to_i
   end
@@ -59,6 +54,10 @@ class Project
         }))
     end
     volunteers_on_project
+  end
+
+  def ==(other_proj)
+    @title.==(other_proj.title) & @id.==(other_proj.id)
   end
 
 end
