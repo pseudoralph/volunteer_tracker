@@ -8,16 +8,25 @@ class Project
   end
 
   def self.all
-    all_projects_from_db = DB.exec("SELECT * FROM projects")
-    all_projects = []
+    projects_from_db = DB.exec("SELECT * FROM projects")
+    projects = []
 
-    all_projects_from_db.each do |project|
-      all_projects.push(Project.new({
-        title: project["title"],
-        id: project["id"].to_i
+    projects_from_db.each do |project|
+      projects.push(Project.new({
+        title: project['title'],
+        id: project['id'].to_i
         }))
     end
-    all_projects
+    projects
+  end
+
+  def self.find(project_id)
+    found_proj_from_db = DB.exec("SELECT * FROM projects WHERE id = #{project_id}").first
+
+    Project.new({
+      title: found_proj_from_db['title'],
+      id: found_proj_from_db['id'].to_i
+      })
   end
 
   def ==(other_proj)
@@ -27,6 +36,22 @@ class Project
 
   def save
     @id = DB.exec("INSERT INTO projects (title) VALUES ('#{@title}') RETURNING id;").first["id"].to_i
+  end
+
+  def volunteers
+    # volunteers_on_project_from_db = DB.exec("SELECT * FROM volunteers WHERE project_id = #{@id}")
+
+    volunteers_on_project_from_db = DB.exec("SELECT * FROM volunteers WHERE project_id = #{project.id}")
+    volunteers_on_project = []
+
+    volunteers_on_project_from_db.each do |volunteer|
+      volunteers_on_project.push(Volunteer.new({
+        name: volunteer['name'],
+        project_id: volunteer['project_id'].to_i,
+        id: volunteer['id'].to_i
+        }))
+    end
+    volunteers_on_project
   end
 
 end
