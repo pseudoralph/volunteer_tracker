@@ -21,7 +21,7 @@ class Project
   end
 
   def self.find(project_id)
-    found_proj_from_db = DB.exec("SELECT * FROM projects WHERE id = #{project_id}").first
+    found_proj_from_db = DB.exec("SELECT * FROM projects WHERE id = #{project_id};").first
 
     Project.new({
       title: found_proj_from_db['title'],
@@ -38,10 +38,17 @@ class Project
     @id = DB.exec("INSERT INTO projects (title) VALUES ('#{@title}') RETURNING id;").first["id"].to_i
   end
 
-  def volunteers
-    # volunteers_on_project_from_db = DB.exec("SELECT * FROM volunteers WHERE project_id = #{@id}")
+  def update(new_attribs)
+    @title = new_attribs[:title] ? new_attribs[:title] : @title
+    DB.exec("UPDATE projects SET title = '#{@title}' WHERE id = #{@id};")
+  end
 
-    volunteers_on_project_from_db = DB.exec("SELECT * FROM volunteers WHERE project_id = #{project.id}")
+  def delete
+    DB.exec("DELETE FROM projects WHERE id = #{@id};")
+  end
+
+  def volunteers
+    volunteers_on_project_from_db = DB.exec("SELECT * FROM volunteers WHERE project_id = #{@id};")
     volunteers_on_project = []
 
     volunteers_on_project_from_db.each do |volunteer|
