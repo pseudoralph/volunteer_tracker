@@ -6,8 +6,8 @@ also_reload './lib/**/*.rb'
 require_relative 'lib/volunteer.rb'
 require_relative 'lib/project.rb'
 
-DB = PG.connect({dbname: 'volunteer_tracker'})
-# DB = PG.connect({dbname: 'volunteer_tracker_test'})
+# DB = PG.connect({dbname: 'volunteer_tracker'})
+DB = PG.connect({dbname: 'volunteer_tracker_test'})
 
 
 get '/' do
@@ -40,11 +40,20 @@ get '/projects/:id' do
 end
 
 patch '/projects/:id/rename' do
-  @project = Project.find(params[:id].to_i)
-  @project.update({title: params[:title]})
+  project = Project.find(params[:id].to_i)
+  project.update({title: params[:title]})
 
   redirect "/projects/#{params[:id].to_i}"
 end
+
+delete '/projects/:id/delete' do
+
+  project = Project.find(params[:id].to_i)
+  project.delete
+
+  redirect "/"
+end
+
 
 get '/volunteers/:id/delete' do
   volunteer = Volunteer.find(params[:id].to_i)
