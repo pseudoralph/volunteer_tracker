@@ -2,6 +2,11 @@
   margin: 0 -15px 15px;
 }
 
+td a.btn {
+  display: inline;
+  float: right!important;
+}
+
 .assign button {
   display: block;
   margin-bottom: 5px;
@@ -37,4 +42,28 @@
 .delete-project {
   position: absolute;
   bottom: 0;
+}
+
+.updater h5 {
+  display: inline-block;
+
+}
+
+.updater a {
+  color: #000000;
+}
+
+.updater a:hover {
+  color: #000000;
+  text-decoration: none;
+}
+
+.all_projects, .all_volunteers {
+  margin-top: 25px;
+
+}
+
+a.trash {
+  color:#7b7b7b;
+  float: right !important;
 }

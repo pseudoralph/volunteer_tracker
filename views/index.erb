@@ -22,12 +22,11 @@
       </div>
     </div>
 
-    <div class="project_details">
+    <div class="all_projects">
       <table class="table table-striped">
         <thead>
           <tr>
             <th scope="col">Title</th>
-            <th scope="col">№ volunteers</th>
             <th scope="col">&nbsp;</th>
           </tr>
         </thead>
@@ -35,8 +34,7 @@
           <% @all_projects.each do |project| %>
           <tr>
             <td><a href="/projects/<%= project.id %>"><%= project.title %></a></td>
-            <td>0</td>
-            <td><button type="button" name="<%= project.id %>">Edit</button></td>
+            <td><a href="/projects/<%= project.id %>" class="btn btn-secondary btn-sm">Edit</a></td>
           </tr>
 
           <% end %>
@@ -68,7 +66,7 @@
       </div>
     </div>
 
-  <div class="">
+  <div class="all_volunteers">
     <table class="table table-striped">
       <thead>
         <tr>
@@ -82,7 +80,7 @@
         <tr>
           <td><%= volunteer.name %></td>
           <td><%= projects_staus = volunteer.project_id != 0 ? '<strong><em>yes</em></strong>' : '<em>no</em>'%></td>
-          <td><a href="/volunteers/<%= volunteer.id %>/delete"><i class="far fa-trash-alt"></i></a></td>
+          <td><a href="/volunteers/<%= volunteer.id %>/delete" class="trash"><i class="far fa-trash-alt"></i></a></td>
         </tr>
         <% end %>
       </tbody>

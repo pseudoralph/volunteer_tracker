@@ -1,8 +1,12 @@
 <div class="row" style="margin-top: 50px;">
   <div class="col-md-5 mx-auto" >
 
-    <div class="card">
-      <h5 class="card-header">Rename volunteer: <%= @volunteer.name.upcase %> </h5>
+    <div class="card updater">
+      <div class="card-header"><h5>Rename volunteer: <%= @volunteer.name.upcase %></h5>
+        <button type="button" class="close" aria-label="Close">
+          <a href="/projects/<%= @volunteer.project_id %>"><span aria-hidden="true">&times;</span></a>
+        </button>
+      </div>
       <div class="card-body">
 
         <form id='rename-volunteer' action="/volunteer/<%= @volunteer.id %>/rename" method="post">

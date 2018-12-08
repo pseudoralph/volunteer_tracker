@@ -56,7 +56,12 @@ get '/volunteer/:id/' do
   erb :volunteer_update
 end
 
+
+
 patch '/volunteer/:id/assign' do
+  unless params["volunteer_ids"]
+    redirect "/projects/#{params[:id].to_i}"
+  end
   params["volunteer_ids"].each do |volunteer_id|
     volunteer = Volunteer.find(volunteer_id.to_i)
     volunteer.update(project_id: params["id"].to_i)
