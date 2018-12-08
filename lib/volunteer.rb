@@ -28,7 +28,6 @@ class Volunteer
       project_id: found_volunteer_from_db['project_id'].to_i,
       id: found_volunteer_from_db['id'].to_i
       })
-
   end
 
   def save
@@ -37,7 +36,6 @@ class Volunteer
     else
       @id = DB.exec("INSERT INTO volunteers (name) VALUES ('#{@name}') RETURNING id;").first['id'].to_i
     end
-
   end
 
   def delete
@@ -53,5 +51,4 @@ class Volunteer
   def ==(other_volunteer)
     @name.==(other_volunteer.name) & @project_id.==(other_volunteer.project_id) & @id.==(other_volunteer.id)
   end
-
 end
