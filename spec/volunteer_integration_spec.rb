@@ -27,15 +27,10 @@ describe 'the project update path', {:type => :feature} do
     test_project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
     test_project.save
     visit '/'
-    # binding.pry
     click_link('Teaching Kids to Code')
     click_link('Edit Project')
     fill_in('title', :with => 'Teaching Ruby to Kids')
-    # click_link('Update Project')
-
     click_button('Update Project')
-    # visit "/projects/#{test_project.id}"
-
     expect(page).to have_content('Teaching Ruby to Kids')
   end
 end
@@ -63,7 +58,6 @@ describe 'the volunteer detail page path', {:type => :feature} do
     project_id = test_project.id.to_i
     test_volunteer = Volunteer.new({:name => 'Jasmine', :project_id => project_id, :id => nil})
     test_volunteer.save
-  # binding.pry
     visit "/projects/#{project_id}"
     click_link('Jasmine')
     fill_in('name', :with => 'Jane')

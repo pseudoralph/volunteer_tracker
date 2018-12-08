@@ -19,8 +19,8 @@
   line-height: 1.5;
   border-radius: .25rem;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-
 }
+
 .proj-title h3 {
   display: inline-block;
   margin: 0 10px 30px auto;
@@ -28,13 +28,10 @@
 
 .proj-title a {
   color: #878787;
-
 }
 
 .proj-title a:hover {
   color: #878787;
-  /* text-decoration: none; */
-
 }
 
 .delete-project {

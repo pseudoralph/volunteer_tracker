@@ -45,10 +45,8 @@ class Volunteer
   end
 
   def update(new_attribs)
-    # binding.pry
     @name = new_attribs[:name] ? new_attribs[:name] : @name
     @project_id = new_attribs[:project_id] ? new_attribs[:project_id].to_i : @project_id
-# UPDATE volunteers SET project_id = 1, name='henry' WHERE id = 460;
     DB.exec("UPDATE volunteers SET project_id = #{@project_id}, name = '#{@name}' WHERE id = #{@id};")
   end
 
