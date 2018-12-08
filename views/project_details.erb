@@ -44,54 +44,75 @@
 
 <div class="row">
   <div class="col-md-5">
-    <div class="form-group">
-      <label for="assigned">Volunteers working this project</label>
-      <select multiple class="form-control" id="unassigned" name="unassigned">
-        <% @volunteers.each do |volunteer| %>
-        <% if volunteer.project_id.to_i == @project.id %>
-          <option name="volunteer_id[]" value="<%=volunteer.id %>"><%= volunteer.name %></option>
+
+    <div class="card">
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Volunteers on this project</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @volunteers.each do |volunteer| %>
+          <% if volunteer.project_id.to_i == @project.id %>
+          <tr>
+            <td>
+              <a href="/volunteer/<%=volunteer.id%>/"><%= volunteer.name %></a>
+            </td>
+          </tr>
           <% end %>
-        <% end %>
-      </select>
+          <% end %>
+        </tbody>
+      </table>
     </div>
-  </div>
-
-  <div class="col-md-2 mx-auto assign">
-
-    <button type="button" class="btn-primary" name="button"> <-- </button>
-    <button type="button" class="btn-primary" name="button"> --> </button>
-
 
   </div>
 
   <div class="col-md-5">
-    <div class="form-group">
-      <label for="unassigned">Unassigned volunteers</label>
-      <select multiple class="form-control" id="unassigned" name="unassigned">
-        <% @volunteers.each do |volunteer| %>
-        <% if volunteer.project_id.to_i == 0 %>
-          <option name="volunteer_id[]" value="<%=volunteer.id %>"><%= volunteer.name %></option>
+
+    <div class="card">
+      <form class="" action="/volunteer/<%= @project.id %>/assign" method="post">
+        <input type="hidden" name="_method" value="patch">
+
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">Available volunteers</th>
+            <th scope="col"><button class="btn btn-primary btn-sm" type="submit" name="button">Add</button></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @volunteers.each do |volunteer| %>
+          <% if volunteer.project_id.to_i == 0 %>
+          <tr>
+            <td><a href="/volunteer/<%=volunteer.id%>/"><%= volunteer.name %></a></td>
+            <td style="text-align: center;"><input class="form-check-input" type="checkbox" value="<%=volunteer.id%>" name="volunteer_ids[]"></td>
+          </tr>
           <% end %>
-        <% end %>
-      </select>
+          <% end %>
+
+        </tbody>
+      </table>
+
+
+    </form>
     </div>
 
   </div>
 
 </div>
 
-<div class="row">
-  <div class="col-md-2">
-    <form action="/projects/<%= @project.id %>/delete" method="post">
-      <input type="hidden" name="_method" value="delete">
-
-      <div class="form-group ">
-        <button type="submit" class="btn btn-danger">Delete Project</button>
-      </div>
-    </form>
-
-  </div>
 
 
+
+<div class="delete-project">
+
+  <form action="/projects/<%= @project.id %>/delete" method="post">
+    <input type="hidden" name="_method" value="delete">
+
+    <div class="form-group ">
+      <button type="submit" class="btn btn-danger">Delete Project</button>
+    </div>
+  </form>
 
 </div>

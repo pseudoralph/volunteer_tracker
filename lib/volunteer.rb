@@ -44,6 +44,14 @@ class Volunteer
     DB.exec("DELETE FROM volunteers WHERE id = #{@id};")
   end
 
+  def update(new_attribs)
+    # binding.pry
+    @name = new_attribs[:name] ? new_attribs[:name] : @name
+    @project_id = new_attribs[:project_id] ? new_attribs[:project_id].to_i : @project_id
+# UPDATE volunteers SET project_id = 1, name='henry' WHERE id = 460;
+    DB.exec("UPDATE volunteers SET project_id = #{@project_id}, name = '#{@name}' WHERE id = #{@id};")
+  end
+
   def ==(other_volunteer)
     @name.==(other_volunteer.name) & @project_id.==(other_volunteer.project_id) & @id.==(other_volunteer.id)
   end
