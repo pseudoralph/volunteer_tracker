@@ -15,6 +15,14 @@ get '/' do
   erb :index
 end
 
+get '/volunteer' do
+  redirect '/'
+end
+
+get '/projects' do
+  redirect '/'
+end
+
 post '/add-project' do
   if params["title"] != ''
     project = Project.new({title: params['title']})

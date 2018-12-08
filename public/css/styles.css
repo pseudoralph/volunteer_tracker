@@ -1,3 +1,9 @@
+input[type='checkbox'] {
+  float: right;
+  margin-top: .3rem;
+  margin-right: .9rem;
+}
+
 .nav-styling {
   margin: 0 -15px 15px;
 }
@@ -62,8 +68,3 @@
   display: inline;
   float: right!important;
 }
-
-/* a.trash {
-  color:#7b7b7b;
-  float: right !important;
-} */
