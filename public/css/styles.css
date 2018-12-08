@@ -8,27 +8,24 @@ th {
   border-top: 0px !important;
 }
 
-.nav-styling {
-  margin: 0 -15px 15px;
+tr > th:nth-child(even) {
+  text-align: center;
 }
 
-.assign button {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: 400;
+tr > td:nth-child(even) {
   text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: 1px solid transparent;
-  padding: .375rem .75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  border-radius: .25rem;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.nav-styling {
+  margin: 0 -15px 25px;
+}
+
+.add-new {
+  margin-bottom: 3rem;
+}
+
+.all_projects, .all_volunteers {
+  margin-top: 25px;
 }
 
 .proj-title h3 {
@@ -61,10 +58,6 @@ th {
 .updater a:hover {
   color: #000000;
   text-decoration: none;
-}
-
-.all_projects, .all_volunteers {
-  margin-top: 25px;
 }
 
 .button-style {
