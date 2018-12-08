@@ -38,7 +38,6 @@ get '/projects/:id' do
   erb :project_details
 end
 
-
 get '/projects/:id/edit' do
   @project = Project.find(params[:id].to_i)
   erb :project_update
@@ -55,8 +54,6 @@ get '/volunteer/:id/' do
   @volunteer = Volunteer.find(params[:id].to_i)
   erb :volunteer_update
 end
-
-
 
 patch '/volunteer/:id/assign' do
   unless params["volunteer_ids"]
@@ -87,7 +84,7 @@ delete '/projects/:id/delete' do
   redirect "/"
 end
 
-get '/volunteers/:id/delete' do
+delete '/volunteers/:id/delete' do
   volunteer = Volunteer.find(params[:id].to_i)
   volunteer.delete
 

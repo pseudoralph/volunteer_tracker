@@ -2,11 +2,6 @@
   margin: 0 -15px 15px;
 }
 
-td a.btn {
-  display: inline;
-  float: right!important;
-}
-
 .assign button {
   display: block;
   margin-bottom: 5px;
@@ -63,7 +58,12 @@ td a.btn {
 
 }
 
-a.trash {
+.button-style {
+  display: inline;
+  float: right!important;
+}
+
+/* a.trash {
   color:#7b7b7b;
   float: right !important;
-}
+} */

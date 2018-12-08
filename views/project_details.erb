@@ -1,16 +1,14 @@
+<nav class="navbar navbar-light bg-light nav-styling" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Projects</li>
+  </ol>
+</nav>
 
-  <nav class="navbar navbar-light bg-light nav-styling" aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="/">Home</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Projects</li>
-    </ol>
-  </nav>
-
-  <div class="proj-title">
-    <h3><%= @project.title %></h3>
-    <small><a href="/projects/<%= @project.id %>/edit" >Edit Project</a></small>
-
-  </div>
+<div class="proj-title">
+  <h3><%= @project.title %></h3>
+  <small><a href="/projects/<%= @project.id %>/edit" >Edit Project</a></small>
+</div>
 
 
 <div class="row">
@@ -36,7 +34,6 @@
         </tbody>
       </table>
     </div>
-
   </div>
 
   <div class="col-md-5">
@@ -44,48 +41,36 @@
     <div class="card">
       <form class="" action="/volunteer/<%= @project.id %>/assign" method="post">
         <input type="hidden" name="_method" value="patch">
-
-      <table class="table">
-        <thead class="thead-light">
-          <tr>
-            <th scope="col">Available volunteers</th>
-            <th scope="col">
-              <button class="btn btn-primary btn-sm" type="submit" >Add</button>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @volunteers.each do |volunteer| %>
-          <% if volunteer.project_id.to_i == 0 %>
-          <tr>
-            <td><a href="/volunteer/<%=volunteer.id%>/"><%= volunteer.name %></a></td>
-            <td style="text-align: center;"><input class="form-check-input" type="checkbox" value="<%=volunteer.id%>" name="volunteer_ids[]"></td>
-          </tr>
-          <% end %>
-          <% end %>
-
-        </tbody>
-      </table>
-
-
-    </form>
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Available volunteers</th>
+              <th scope="col">
+                <button class="btn btn-primary btn-sm" type="submit" >Add</button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @volunteers.each do |volunteer| %>
+            <% if volunteer.project_id.to_i == 0 %>
+            <tr>
+              <td><a href="/volunteer/<%=volunteer.id%>/"><%= volunteer.name %></a></td>
+              <td style="text-align: center;"><input class="form-check-input" type="checkbox" value="<%=volunteer.id%>" name="volunteer_ids[]"></td>
+            </tr>
+            <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      </form>
     </div>
-
   </div>
-
 </div>
 
-
-
-
 <div class="delete-project">
-
   <form action="/projects/<%= @project.id %>/delete" method="post">
     <input type="hidden" name="_method" value="delete">
-
     <div class="form-group ">
       <button type="submit" class="btn btn-danger">Delete Project</button>
     </div>
   </form>
-
 </div>
