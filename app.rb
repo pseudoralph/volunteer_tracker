@@ -38,6 +38,12 @@ get '/projects/:id' do
   erb :project_details
 end
 
+
+get '/projects/:id/edit' do
+  @project = Project.find(params[:id].to_i)
+  erb :project_update
+end
+
 patch '/projects/:id/rename' do
   project = Project.find(params[:id].to_i)
   project.update({title: params[:title]})
@@ -47,7 +53,7 @@ end
 
 get '/volunteer/:id/' do
   @volunteer = Volunteer.find(params[:id].to_i)
-  erb :volunteer_details
+  erb :volunteer_update
 end
 
 patch '/volunteer/:id/assign' do

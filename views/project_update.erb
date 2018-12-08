@@ -1,0 +1,28 @@
+
+
+
+<div class="row" style="margin-top: 50px;">
+  <div class="col-md-5 mx-auto" >
+
+    <div class="card">
+      <h5 class="card-header">Rename project: <%= @project.title.upcase %> </h5>
+      <div class="card-body">
+
+        <form id='rename-volunteer' action="/projects/<%= @project.id %>/rename" method="post">
+          <input type="hidden" name="_method" value="patch">
+          <div class="form-group">
+            <input type="text" class="form-control" id="title" name="title" placeholder="New name">
+          </div>
+
+        <button type="submit" class="btn btn-primary">Update Project</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<!--
+<button type="button" class="close" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button> -->

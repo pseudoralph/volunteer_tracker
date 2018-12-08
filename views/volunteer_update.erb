@@ -1,10 +1,9 @@
 
-
 <div class="row" style="margin-top: 50px;">
   <div class="col-md-5 mx-auto" >
 
     <div class="card">
-      <h5 class="card-header">Rename volunteer: <%= @volunteer.name.upcase %></h5>
+      <h5 class="card-header">Rename volunteer: <%= @volunteer.name.upcase %> </h5>
       <div class="card-body">
 
         <form id='rename-volunteer' action="/volunteer/<%= @volunteer.id %>/rename" method="post">
@@ -21,3 +20,7 @@
   </div>
 
 </div>
+<!-- 
+<button type="button" class="close" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button> -->
