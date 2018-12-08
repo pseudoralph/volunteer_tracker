@@ -12,6 +12,7 @@ DB = PG.connect({dbname: 'volunteer_tracker'})
 get '/' do
   @all_projects = Project.all
   @all_volunteers = Volunteer.all
+
   erb :index
 end
 

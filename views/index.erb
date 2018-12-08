@@ -6,8 +6,6 @@
 
 <div class="row">
 
-  <!-- <div class="col-md-1"></div> -->
-
   <div class="col-md-5 mx-auto">
 
     <div class="card">
@@ -28,6 +26,7 @@
         <thead>
           <tr>
             <th scope="col">Title</th>
+            <th scope="col" style="text-align: center;">№ of volunteers</th>
             <th scope="col">&nbsp;</th>
           </tr>
         </thead>
@@ -35,6 +34,16 @@
           <% @all_projects.each do |project| %>
           <tr>
             <td><a href="/projects/<%= project.id %>"><%= project.title %></a></td>
+            <td style="text-align: center;">
+              <%
+                volunteers_count = 0
+                @all_volunteers.each do |volunteer|
+                  if volunteer.project_id == project.id
+                    volunteers_count += 1
+                  end
+                end %>
+              <%= volunteers_count %>
+            </td>
             <td><a href="/projects/<%= project.id %>" class="button-style  btn btn-secondary btn-sm">Edit</a></td>
           </tr>
           <% end %>
@@ -65,7 +74,7 @@
       <thead>
         <tr>
           <th scope="col">Name</th>
-          <th scope="col">Project assigned?</th>
+          <th scope="col" style="text-align: center;">Project assigned?</th>
           <th scope="col">&nbsp;</th>
         </tr>
       </thead>
@@ -73,9 +82,9 @@
         <% @all_volunteers.each do |volunteer| %>
         <tr>
           <td><%= volunteer.name %></td>
-          <td><%= projects_staus = volunteer.project_id != 0 ? '<strong>yes</strong>' : '<em>no</em>'%></td>
+          <td style="text-align: center;"><%= projects_staus = volunteer.project_id != 0 ? '<strong>yes</strong>' : '<em>no</em>'%></td>
           <td>
-            <form action="/volunteers/<%= volunteer.id %>/delete" method="post">
+            <form action="/volunteers/<%= volunteer.id %>/delete" method="post" style="float: right;>
               <input type="hidden" name="_method" value="delete">
               <button type="submit" class="button-style btn btn-secondary btn-sm"><i class="far fa-trash-alt"></i></button>
             </form>
