@@ -21,20 +21,21 @@ tr > td:nth-child(even) {
 }
 
 .nav-styling {
-  margin: 0 -15px 25px;
+  margin: 0 -15px;
 }
 
-.project-card {
-  margin-bottom: 3rem;
+.nav-styling a.btn {
+  margin-left: 3em;
+  font-size: .65em;
 }
 
-.all_projects, .all_volunteers {
-  margin-top: 25px;
+.project-card, .all_projects, .all_volunteers {
+  margin-top: 3rem;
 }
+
 
 .project-title h3 {
   display: inline-block;
-  margin: 0 10px 30px auto;
 }
 
 .project-title a {

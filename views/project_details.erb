@@ -1,15 +1,10 @@
 <nav class="navbar navbar-light bg-light nav-styling" aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="/">Volunteer Tracker</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Projects</li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @project.title %>
+      <a href="/projects/<%= @project.id %>/edit" class="btn btn-secondary btn-sm">Edit Project</a></li>
   </ol>
 </nav>
-
-<div class="project-title">
-  <h3><%= @project.title %></h3>
-  <small><a href="/projects/<%= @project.id %>/edit" >Edit Project</a></small>
-</div>
-
 
 <div class="row">
   <div class="col-md-5 mx-auto">
