@@ -6,8 +6,7 @@ also_reload './lib/**/*.rb'
 require_relative 'lib/volunteer.rb'
 require_relative 'lib/project.rb'
 
-DB = PG.connect({dbname: 'volunteer_tracker'})
-# DB = PG.connect({dbname: 'volunteer_tracker_test'})
+DB = PG.connect(ENV['DATABASE_URL'])
 
 get '/' do
   @all_projects = Project.all
