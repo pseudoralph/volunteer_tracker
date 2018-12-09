@@ -24,7 +24,7 @@ tr > td:nth-child(even) {
   margin: 0 -15px 25px;
 }
 
-.add-new {
+.project-card {
   margin-bottom: 3rem;
 }
 
@@ -64,6 +64,11 @@ tr > td:nth-child(even) {
 }
 
 .delete-project {
+  margin-left: -15px;
+  /* padding-top: 20px; */
+  padding: 20px 0 0 15px;
+  width: 100%;
+  background: #f8f9fa!important;
   position: absolute;
   bottom: 0;
 }

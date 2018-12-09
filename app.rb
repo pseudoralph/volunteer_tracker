@@ -1,12 +1,14 @@
 require 'pg'
 require 'sinatra'
 require 'sinatra/reloader'
-require 'pry'
 also_reload './lib/**/*.rb'
 require_relative 'lib/volunteer.rb'
 require_relative 'lib/project.rb'
 
-DB = PG.connect(ENV['DATABASE_URL'])
+# DB = PG.connect(ENV['DATABASE_URL'])
+# DB = PG.connect({dbname: 'volunteer_tracker'})
+
+DB = ENV['DATABASE_URL'] ? PG.connect(ENV['DATABASE_URL']) : PG.connect({dbname: 'volunteer_tracker'})
 
 get '/' do
   @all_projects = Project.all
