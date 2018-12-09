@@ -19,7 +19,7 @@ SPECIAL NOTE: This project requires PostgreSQL be installed on your computer
   * NOTE: install `bundle` using `gem install bundle` if not installed
 * type `rspec` to see test's results
 
-This app can also be accessed by visiting [http://definer.prdmo.com/](http://definer.prdmo.com/)
+This app can also be accessed by visiting [http://tracker.prdmo.com/](http://tracker.prdmo.com/)
 
 ## Technologies Used
 
