@@ -25,8 +25,16 @@ tr > td:nth-child(even) {
 }
 
 .nav-styling a.btn {
-  margin-left: 3em;
+  line-height: 1em;
   font-size: .65em;
+}
+
+.nav-styling li {
+  padding-bottom: .2em;
+}
+
+.nav-styling li:nth-child(even) {
+  margin-right: 3em;
 }
 
 .project-card, .all_projects, .all_volunteers {
@@ -66,7 +74,6 @@ tr > td:nth-child(even) {
 
 .delete-project {
   margin-left: -15px;
-  /* padding-top: 20px; */
   padding: 20px 0 0 15px;
   width: 100%;
   background: #f8f9fa!important;
